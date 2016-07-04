@@ -1,0 +1,12 @@
+application: sd03is032
+version: 14
+runtime: php55
+api_version: 1
+
+handlers:
+
+- url: /
+  script: index.html
+
+- url: /.*
+  script: multiply.php

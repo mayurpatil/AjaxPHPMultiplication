@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<title>Multiplication using AJAX,PHP</title>
+<script language="javascript">
+function mul()
+{
+var xmlhttp = new XMLHttpRequest();
+var n1= document.getElementById("num1");
+var n2= document.getElementById("num2");
+
+if(n1.value != "" && n2.value != "")
+{
+
+var url="/multiply.php?num1=" + n1.value + "&num2=" + n2.value + "";
+
+xmlhttp.open("GET",url,true);
+xmlhttp.send(null);
+
+xmlhttp.onreadystatechange = function(){
+
+if(xmlhttp.readyState==4){
+
+document.getElementById("result").innerText=xmlhttp.responseText;
+}
+}
+}
+else
+{
+ alert("Please enter the values");
+ document.getElementById("num1").focus();	
+}
+}
+
+</script>
+<center>
+<h4> Demo of simple multiplication using AJAX, JavaScript and PHP</h4>
+<body>
+<form>
+Enter Num 1 <input type="text" id="num1">
+Enter Num 2 <input type="text" id="num2">
+<input type="Button" Value="Multiply" onclick="mul();" name="btn">
+The result is <p id="result"></p>
+</form>
+</body>
+</center>
+</html>
